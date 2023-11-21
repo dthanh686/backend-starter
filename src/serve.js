@@ -11,7 +11,7 @@ app.set('views', path.join(__dirname, "views"));
 app.set('view engine', "ejs");
 
 app.get("/", (req, res) => {
-  res.send("Hello World!fafaaf");
+  res.send("Hello World!fafaafafafafafafa");
 });
 
 app.get("/shiba", (req, res) => {
