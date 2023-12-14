@@ -8,6 +8,10 @@ const app = express();
 const port = process.env.PORT ?? 8888;
 const hostname = process.env.HOST_NAME;
 
+// config req.body
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
 configViewEngine(app)
 
 app.use('/', webRoutes)
@@ -15,7 +19,6 @@ app.use('/', webRoutes)
 connection.query(
   'select * from Users u',
   function (err, results, fields) {
-    console.log('result>>', results);
   }
 )
 

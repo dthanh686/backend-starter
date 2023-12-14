@@ -15,8 +15,15 @@ const getShiba = (req, res) => {
     res.render("views.ejs");
 }
 
+const postNewUser = (req, res) => {
+    console.log(req.body);
+    res.send("create new user");
+}
+
+
 module.exports = {
     getHomePage,
     getABC,
-    getShiba
+    getShiba,
+    postNewUser
 }
