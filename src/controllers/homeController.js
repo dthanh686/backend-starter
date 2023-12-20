@@ -17,7 +17,20 @@ const getShiba = (req, res) => {
 
 const postNewUser = (req, res) => {
     console.log(req.body);
-    res.send("create new user");
+
+    let email = req.body.email
+    let name = req.body.myname
+    let city = req.body.city
+
+    connection.query(
+        `INSERT INTO Users (email, name, city)
+        VALUES (?, ?, ?)`,
+        [email, name, city],
+        function (err, results) {
+            console.log(results);
+            res.send('create user succeed !')
+        }
+    )
 }
 
 
