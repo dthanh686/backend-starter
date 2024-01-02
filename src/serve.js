@@ -16,11 +16,11 @@ configViewEngine(app)
 
 app.use('/', webRoutes)
 
-connection.query(
-  'select * from Users u',
-  function (err, results, fields) {
-  }
-)
+// connection.query(
+//   'select * from Users u',
+//   function (err, results, fields) {
+//   }
+// )
 
 
 

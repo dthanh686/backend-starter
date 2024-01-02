@@ -15,22 +15,27 @@ const getShiba = (req, res) => {
     res.render("views.ejs");
 }
 
-const postNewUser = (req, res) => {
+const postCreateUser = async (req, res) => {
     console.log(req.body);
 
     let email = req.body.email
     let name = req.body.myname
     let city = req.body.city
 
-    connection.query(
-        `INSERT INTO Users (email, name, city)
+
+    let [results, fields] = await connection.query(
+        `INSERT INTO 
+        Users (email, name, city)
         VALUES (?, ?, ?)`,
-        [email, name, city],
-        function (err, results) {
-            console.log(results);
-            res.send('create user succeed !')
-        }
-    )
+        [email, name, city]
+    );
+    console.log("check results =>", results);
+
+    res.send('create user succeed !')
+}
+
+const getCreatePage = (req, res) => {
+    res.render("create.ejs")
 }
 
 
@@ -38,5 +43,6 @@ module.exports = {
     getHomePage,
     getABC,
     getShiba,
-    postNewUser
+    postCreateUser,
+    getCreatePage
 }
